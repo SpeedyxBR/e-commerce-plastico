@@ -15,19 +15,19 @@ datasource db {
 }
 
 model category {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   name      String
   slug      String
   imageUrl  String
-  products  Product[]
-}   
+  products  product[]
+}
 
 model product {
   id        String   @id @default(uuid())
   name      String
   slug      String
   imageUrl  String
-  basePrice Decimal @db.Decimal (8, 2)
+  basePrice Decimal  @db.Decimal (8, 2)
   description String
   categoryId String
   category   category @relation(fields: [categoryId], references: [id])

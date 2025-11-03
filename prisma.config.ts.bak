@@ -1,0 +1,9 @@
+import { defineConfig } from "prisma/config";
+
+// Carregar variáveis de ambiente do arquivo .env
+// O Prisma CLI procura o .env na raiz do projeto automaticamente
+require("dotenv").config();
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+});
