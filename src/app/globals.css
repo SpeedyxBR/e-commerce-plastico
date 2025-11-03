@@ -1,32 +1,31 @@
 @import "tailwindcss";
-
-/* Tokens não-colors podem ficar fora do @theme */
-:root {
-  --radius: 0.625rem;
-}
+@plugin "tailwindcss-animate";
 
 /* Definição de tokens de cor para Tailwind v4 */
 @theme {
-  /* Light */
-  --color-background: oklch(1 0 0);
-  --color-foreground: oklch(0.29 0.05 159.5);
+  /* Tokens não-colors, como radius, ficam aqui dentro */
+  --radius: 0.625rem;
 
-  --color-card: oklch(1 0 0);
+  /* MODO CLARO (LIGHT MODE) - Paleta "Eco" com Fundo Areia (Mais Intenso) */
+  --color-background: oklch(0.98 0.01 92); /* Fundo "Areia" (Mais cor) */
+  --color-foreground: oklch(0.29 0.05 159.5); /* Texto - Verde-Escuro */
+
+  --color-card: oklch(1 0 0); /* Card - Branco Puro (para contraste) */
   --color-card-foreground: oklch(0.29 0.05 159.5);
 
-  --color-popover: oklch(1 0 0);
+  --color-popover: oklch(1 0 0); /* Popover - Branco Puro */
   --color-popover-foreground: oklch(0.29 0.05 159.5);
 
-  --color-primary: oklch(0.51 0.07 159.23);
+  --color-primary: oklch(0.51 0.07 159.23); /* Verde Sálvia */
   --color-primary-foreground: oklch(0.99 0.004 159);
 
-  --color-secondary: oklch(0.96 0.01 92);
+  --color-secondary: oklch(0.96 0.01 92); /* Bege/Areia (um pouco mais escuro) */
   --color-secondary-foreground: oklch(0.31 0.04 91.68);
 
   --color-muted: oklch(0.96 0.01 92);
   --color-muted-foreground: oklch(0.55 0.03 92);
 
-  --color-accent: oklch(0.63 0.17 236.46);
+  --color-accent: oklch(0.63 0.17 236.46); /* Azul (CTA) */
   --color-accent-foreground: oklch(1 0 0);
 
   --color-destructive: oklch(0.577 0.245 27.325);
@@ -36,14 +35,14 @@
   --color-input: oklch(0.89 0.03 91.95);
   --color-ring: oklch(0.63 0.17 236.46);
 
-  /* Extras (usados via bg-chart-1, bg-sidebar, etc.) */
+  /* Extras */
   --color-chart-1: oklch(0.51 0.07 159.23);
   --color-chart-2: oklch(0.63 0.17 236.46);
   --color-chart-3: oklch(0.55 0.03 92);
   --color-chart-4: oklch(0.7 0.05 159);
   --color-chart-5: oklch(0.7 0.1 236);
 
-  --color-sidebar: oklch(0.98 0.005 92);
+  --color-sidebar: oklch(0.98 0.01 92); /* Fundo da Sidebar (igual ao fundo principal) */
   --color-sidebar-foreground: oklch(0.29 0.05 159.5);
   --color-sidebar-primary: oklch(0.51 0.07 159.23);
   --color-sidebar-primary-foreground: oklch(0.99 0.004 159);
@@ -51,9 +50,10 @@
   --color-sidebar-accent-foreground: oklch(0.29 0.05 159.5);
   --color-sidebar-border: oklch(0.89 0.03 91.95);
   --color-sidebar-ring: oklch(0.63 0.17 236.46);
+
 }
 
-/* Dark: sobrescreve os mesmos tokens */
+/* MODO ESCURO (DARK MODE) - Paleta Eco */
 .dark {
   --color-background: oklch(0.2 0.04 160);
   --color-foreground: oklch(0.93 0.02 91.89);
