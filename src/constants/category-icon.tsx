@@ -1,17 +1,10 @@
-import {
-  KeyboardIcon,
-  MonitorIcon,
-  HeadphonesIcon,
-  SquareIcon,
-  SpeakerIcon,
-  MouseIcon,
-} from "lucide-react";
+import { LeafIcon, SproutIcon, RecycleIcon, BoxesIcon, DropletsIcon } from "lucide-react";
 
 export const CATEGORY_ICON = {
-  keyboards: <KeyboardIcon size={16} />,
-  monitors: <MonitorIcon size={16} />,
-  headphones: <HeadphonesIcon size={16} />,
-  mousepads: <SquareIcon size={16} />,
-  speakers: <SpeakerIcon size={16} />,
-  mouses: <MouseIcon size={16} />,
+  "embalagens-ecologicas": <LeafIcon size={16} />,
+  "descartaveis-sustentaveis": <RecycleIcon size={16} />,
+  "utensilios-sustentaveis": <SproutIcon size={16} />,
+  "organizacao-sustentavel": <BoxesIcon size={16} />,
+  "limpeza-sustentavel": <DropletsIcon size={16} />,
+  "cozinha-sustentavel": <LeafIcon size={16} />,
 };

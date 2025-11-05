@@ -25,6 +25,7 @@ import { Avatar, AvatarImage } from "./avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import { Separator } from "./separator";
 import Link from "next/link";
+import Image from "next/image";
 import Cart from "./cart";
 import { useContext } from "react";
 import { CartContext } from "@/providers/cart";
@@ -166,9 +167,18 @@ const Header = () => {
       </Sheet>
 
       <Link href="/">
-        <h1 className="text-lg font-semibold">
-          <span className="text-primary">Eco</span> Plástico 
-        </h1>
+        <div className="flex items-center gap-2">
+          <Image
+            src="/Adesivo Circular Frase Ecológica Ilustrativo Verde e Branco (1).png"
+            alt="Selo ecológico"
+            width={48}
+            height={48}
+            priority
+          />
+          <h1 className="text-lg font-semibold text-green-600">
+            Eco Plásticos
+          </h1>
+        </div>
       </Link>
 
       <Sheet>
