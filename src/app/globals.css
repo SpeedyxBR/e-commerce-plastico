@@ -4,30 +4,30 @@
 
 @layer base {
   :root {
-    /* Tema Plástico Ecológico - Paleta Bege e Verde */
-    --background: 40 15% 96%; /* Bege muito claro (fundo principal) */
+    /* Tema Plástico Ecológico - Paleta Bege e Verde (HSL - compatível) */
+    --background: 40 20% 93%; /* Bege texturizado (fundo principal) */
     --foreground: 140 30% 18%; /* Verde escuro (texto principal) */
 
-    --card: 40 12% 98%; /* Bege quase branco (cards) */
+    --card: 40 18% 95%; /* Bege texturizado (cards) */
     --card-foreground: 140 30% 20%; /* Verde escuro (texto em cards) */
 
-    --popover: 40 12% 98%;
+    --popover: 40 18% 95%;
     --popover-foreground: 140 30% 20%;
 
     --primary: 140 45% 42%; /* Verde médio (cor principal - sustentável) */
-    --primary-foreground: 40 15% 98%; /* Bege claro (texto sobre verde) */
+    --primary-foreground: 40 18% 95%; /* Bege texturizado (texto sobre verde) */
 
     --secondary: 40 20% 88%; /* Bege médio (secundário) */
     --secondary-foreground: 140 35% 25%; /* Verde escuro (texto sobre bege) */
 
-    --muted: 40 15% 92%; /* Bege suave (fundos sutis) */
+    --muted: 40 18% 90%; /* Bege suave texturizado (fundos sutis) */
     --muted-foreground: 140 25% 45%; /* Verde acinzentado (texto sutil) */
 
     --accent: 120 35% 55%; /* Verde mais claro (destaques/CTAs) */
-    --accent-foreground: 40 15% 98%; /* Bege claro (texto sobre accent) */
+    --accent-foreground: 40 18% 95%; /* Bege texturizado (texto sobre accent) */
 
     --destructive: 0 65% 45%; /* Vermelho (mantido para alertas) */
-    --destructive-foreground: 40 15% 98%;
+    --destructive-foreground: 40 18% 95%;
 
     --border: 40 18% 85%; /* Bege para bordas */
     --input: 40 18% 85%; /* Bege para inputs */
