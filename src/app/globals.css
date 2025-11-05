@@ -1,106 +1,67 @@
-@import "tailwindcss";
-@plugin "tailwindcss-animate";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Definição de tokens de cor para Tailwind v4 */
-@theme {
-  /* Tokens não-colors, como radius, ficam aqui dentro */
-  --radius: 0.625rem;
+@layer base {
+  :root {
+    /* Tema Plástico Ecológico - Paleta Bege e Verde */
+    --background: 40 15% 96%; /* Bege muito claro (fundo principal) */
+    --foreground: 140 30% 18%; /* Verde escuro (texto principal) */
 
-  /* MODO CLARO (LIGHT MODE) - Paleta "Eco" com Fundo Areia (Mais Intenso) */
-  --color-background: oklch(0.98 0.01 92); /* Fundo "Areia" (Mais cor) */
-  --color-foreground: oklch(0.29 0.05 159.5); /* Texto - Verde-Escuro */
+    --card: 40 12% 98%; /* Bege quase branco (cards) */
+    --card-foreground: 140 30% 20%; /* Verde escuro (texto em cards) */
 
-  --color-card: oklch(1 0 0); /* Card - Branco Puro (para contraste) */
-  --color-card-foreground: oklch(0.29 0.05 159.5);
+    --popover: 40 12% 98%;
+    --popover-foreground: 140 30% 20%;
 
-  --color-popover: oklch(1 0 0); /* Popover - Branco Puro */
-  --color-popover-foreground: oklch(0.29 0.05 159.5);
+    --primary: 140 45% 42%; /* Verde médio (cor principal - sustentável) */
+    --primary-foreground: 40 15% 98%; /* Bege claro (texto sobre verde) */
 
-  --color-primary: oklch(0.51 0.07 159.23); /* Verde Sálvia */
-  --color-primary-foreground: oklch(0.99 0.004 159);
+    --secondary: 40 20% 88%; /* Bege médio (secundário) */
+    --secondary-foreground: 140 35% 25%; /* Verde escuro (texto sobre bege) */
 
-  --color-secondary: oklch(0.96 0.01 92); /* Bege/Areia (um pouco mais escuro) */
-  --color-secondary-foreground: oklch(0.31 0.04 91.68);
+    --muted: 40 15% 92%; /* Bege suave (fundos sutis) */
+    --muted-foreground: 140 25% 45%; /* Verde acinzentado (texto sutil) */
 
-  --color-muted: oklch(0.96 0.01 92);
-  --color-muted-foreground: oklch(0.55 0.03 92);
+    --accent: 120 35% 55%; /* Verde mais claro (destaques/CTAs) */
+    --accent-foreground: 40 15% 98%; /* Bege claro (texto sobre accent) */
 
-  --color-accent: oklch(0.63 0.17 236.46); /* Azul (CTA) */
-  --color-accent-foreground: oklch(1 0 0);
+    --destructive: 0 65% 45%; /* Vermelho (mantido para alertas) */
+    --destructive-foreground: 40 15% 98%;
 
-  --color-destructive: oklch(0.577 0.245 27.325);
-  --color-destructive-foreground: oklch(0.98 0.01 27.5);
+    --border: 40 18% 85%; /* Bege para bordas */
+    --input: 40 18% 85%; /* Bege para inputs */
+    --ring: 140 45% 42%; /* Verde para anel de foco */
 
-  --color-border: oklch(0.89 0.03 91.95);
-  --color-input: oklch(0.89 0.03 91.95);
-  --color-ring: oklch(0.63 0.17 236.46);
-
-  /* Extras */
-  --color-chart-1: oklch(0.51 0.07 159.23);
-  --color-chart-2: oklch(0.63 0.17 236.46);
-  --color-chart-3: oklch(0.55 0.03 92);
-  --color-chart-4: oklch(0.7 0.05 159);
-  --color-chart-5: oklch(0.7 0.1 236);
-
-  --color-sidebar: oklch(0.98 0.01 92); /* Fundo da Sidebar (igual ao fundo principal) */
-  --color-sidebar-foreground: oklch(0.29 0.05 159.5);
-  --color-sidebar-primary: oklch(0.51 0.07 159.23);
-  --color-sidebar-primary-foreground: oklch(0.99 0.004 159);
-  --color-sidebar-accent: oklch(0.93 0.02 91.89);
-  --color-sidebar-accent-foreground: oklch(0.29 0.05 159.5);
-  --color-sidebar-border: oklch(0.89 0.03 91.95);
-  --color-sidebar-ring: oklch(0.63 0.17 236.46);
-
-}
-
-/* MODO ESCURO (DARK MODE) - Paleta Eco */
-.dark {
-  --color-background: oklch(0.2 0.04 160);
-  --color-foreground: oklch(0.93 0.02 91.89);
-
-  --color-card: oklch(0.23 0.04 160);
-  --color-card-foreground: oklch(0.93 0.02 91.89);
-
-  --color-popover: oklch(0.2 0.04 160);
-  --color-popover-foreground: oklch(0.93 0.02 91.89);
-
-  --color-primary: oklch(0.6 0.08 159);
-  --color-primary-foreground: oklch(0.1 0.02 160);
-
-  --color-secondary: oklch(0.3 0.02 92);
-  --color-secondary-foreground: oklch(0.93 0.02 91.89);
-
-  --color-muted: oklch(0.25 0.04 160);
-  --color-muted-foreground: oklch(0.7 0.02 160);
-
-  --color-accent: oklch(0.7 0.18 236);
-  --color-accent-foreground: oklch(0.1 0.04 236);
-
-  --color-destructive: oklch(0.577 0.245 27.325);
-  --color-destructive-foreground: oklch(0.98 0.01 27.5);
-
-  --color-border: oklch(0.3 0.04 160);
-  --color-input: oklch(0.3 0.04 160);
-  --color-ring: oklch(0.7 0.18 236);
-
-  --color-chart-1: oklch(0.6 0.08 159);
-  --color-chart-2: oklch(0.7 0.18 236);
-  --color-chart-3: oklch(0.5 0.03 92);
-  --color-chart-4: oklch(0.7 0.05 159);
-  --color-chart-5: oklch(0.8 0.1 236);
-
-  --color-sidebar: oklch(0.23 0.04 160);
-  --color-sidebar-foreground: oklch(0.93 0.02 91.89);
-  --color-sidebar-primary: oklch(0.6 0.08 159);
-  --color-sidebar-primary-foreground: oklch(0.1 0.02 160);
-  --color-sidebar-accent: oklch(0.25 0.04 160);
-  --color-sidebar-accent-foreground: oklch(0.93 0.02 91.89);
-  --color-sidebar-border: oklch(0.3 0.04 160);
-  --color-sidebar-ring: oklch(0.7 0.18 236);
+    --radius: 0.5rem;
+  }
 }
 
 @layer base {
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground h-full; }
-  html { @apply h-full; }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply h-full bg-background text-foreground;
+  }
+  html {
+    @apply h-full;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(40, 15%, 92%); /* Bege suave */
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(140, 45%, 42%); /* Verde médio */
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(140, 45%, 38%); /* Verde mais escuro no hover */
 }

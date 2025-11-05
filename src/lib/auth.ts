@@ -1,39 +1,25 @@
-import NextAuth from "next-auth";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
+import { PrismaAdapter } from "@auth/prisma-adapter";
 import GoogleProvider from "next-auth/providers/google";
+import { AuthOptions } from "next-auth";
+import { prismaClient } from "./prisma";
 
-let prisma: PrismaClient;
-
-if (process.env.NODE_ENV === "production") {
-  prisma = new PrismaClient();
-} else {
-  // @ts-ignore
-  if (!global.prisma) {
-    // @ts-ignore
-    global.prisma = new PrismaClient();
-  }
-  // @ts-ignore
-  prisma = global.prisma;
-}
-
-export const authOptions = {
-  adapter: PrismaAdapter(prisma),
+export const authOptions: AuthOptions = {
+  adapter: PrismaAdapter(prismaClient),
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-    // Adicione outros provedores como GitHub, etc.
   ],
-  session: {
-    strategy: "jwt",
-  },
   callbacks: {
-    async session({ session, user, token }) {
+    async session({ session, token, user }) {
+      session.user = { ...session.user, id: user.id } as {
+        id: string;
+        name: string;
+        email: string;
+      };
+
       return session;
     },
   },
 };
-
-export default NextAuth(authOptions);
